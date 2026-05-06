@@ -12,5 +12,6 @@ def update_account_db(account_id, name, email, balance):
     with psycopg2.connect(DATABASE_URL) as conn:
         with conn.cursor() as cur:
             cur.execute(
-             "UPDATE accounts SET email = %s, balance = %s WHERE id = %s",
-              (email, balance or 0, account_id)
+             "UPDATE accounts SET name = %s, email = %s WHERE id = %s",
+              (name, email, account_id)
+            )
